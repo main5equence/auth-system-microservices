@@ -5,6 +5,12 @@ Multi-factor authentication system with RBAC, JWT, sessions and behavioral biome
 
 
 
+<img width="334" height="522" alt="image" src="https://github.com/user-attachments/assets/64ea19e4-ac7b-410b-9068-1e96d3c78826" />
+<img width="348" height="213" alt="image" src="https://github.com/user-attachments/assets/03ff43f1-e36b-4c95-af67-48658f9c3d42" />
+
+
+
+
 ---
 
 ```

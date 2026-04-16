@@ -96,27 +96,40 @@ R-->>U: access granted / denied
 - Two-Factor Authentication (TOTP via Google Authenticator)
 - Behavioral authentication (keystroke dynamics)
 
+<img width="217" height="110" alt="image" src="https://github.com/user-attachments/assets/d1d4523e-fe43-43c0-bde3-000f7830866e" />
+
+
 ### Authorization
 Role-Based Access Control (RBAC)
 Roles:
 admin → full access
 user → limited 
 
+<img width="376" height="201" alt="image" src="https://github.com/user-attachments/assets/4f1c67f6-09d6-4bac-b3b0-3443d956d64b" />
+
+
 ### Token System
 - JWT (short-lived access token)
 - Refresh token
 - Token expiration handling
+
+<img width="235" height="94" alt="image" src="https://github.com/user-attachments/assets/58988f25-63a6-40e4-a593-e23d5d45adec" />
+
 
 ### Behavioral Authentication 
 - Learns typing patterns during registration
 - Measures time between keystrokes
 - Verifies user behavior during login
 
+<img width="345" height="226" alt="image" src="https://github.com/user-attachments/assets/5729690e-8fbc-4fa4-94a0-f2479dc977d5" />
+
 
 ### Session System
 - Session-based authentication (alternative to JWT)
 - Session storage in memory
 - Session invalidation (logout)
+
+<img width="360" height="387" alt="image" src="https://github.com/user-attachments/assets/f8ba24e1-55a5-448d-8cac-c0f8262ac81d" />
 
 
 ### Security Mechanisms
@@ -127,6 +140,9 @@ user → limited
 - Rate limiting (per user)
 - Logout (JWT blacklist + session removal)
 - Test Scenarios
+
+<img width="415" height="74" alt="image" src="https://github.com/user-attachments/assets/04bd9ce8-c35e-47b3-8027-e8593bb6706f" />
+
 
 ---
 

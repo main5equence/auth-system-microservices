@@ -3,6 +3,12 @@
 ## Project Overview
 This project implements a secure authentication and authorization system simulating a microservices architecture.
 
+![Python](https://img.shields.io/badge/Python-3.10+-blue)
+![Security](https://img.shields.io/badge/Security-MFA%20%7C%20JWT%20%7C%20RBAC-green)
+![Behavioral Auth](https://img.shields.io/badge/Auth-Behavioral%20Auth-orange)
+![Architecture](https://img.shields.io/badge/Architecture-Microservices-blueviolet)
+![Purpose](https://img.shields.io/badge/Purpose-Educational-lightgrey)
+
 It includes:
 
 - Multi-factor authentication (2FA)

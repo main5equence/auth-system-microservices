@@ -25,7 +25,7 @@ class KeystrokeAuth:
 
             last_time = now
 
-        return timings  # ✅ lista floatów
+        return timings  
 
     # =========================
     # TRAIN
@@ -39,7 +39,6 @@ class KeystrokeAuth:
             print(f"Sample {i+1}")
             pattern = self.capture_pattern(text)
 
-            # 🔥 ważne — tylko jeśli poprawne dane
             if len(pattern) > 0:
                 collected.append(pattern)
 
@@ -47,7 +46,6 @@ class KeystrokeAuth:
             print("Training failed!")
             return
 
-        # 🔥 średnia z timingów
         avg_pattern = [
             statistics.mean(values)
             for values in zip(*collected)
@@ -69,7 +67,6 @@ class KeystrokeAuth:
         if not stored:
             return False
 
-        # dopasuj długość
         min_len = min(len(stored), len(new_pattern))
 
         diffs = [

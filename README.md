@@ -102,7 +102,9 @@ R-->>U: access granted / denied
 - Two-Factor Authentication (TOTP via Google Authenticator)
 - Behavioral authentication (keystroke dynamics)
 
-<img width="217" height="110" alt="image" src="https://github.com/user-attachments/assets/d1d4523e-fe43-43c0-bde3-000f7830866e" />
+
+<img width="356" height="142" alt="image" src="https://github.com/user-attachments/assets/bb7badfc-346d-49f9-87fa-fdf951cd68a0" />
+
 
 
 ### Authorization
@@ -111,7 +113,11 @@ Roles:
 admin → full access
 user → limited 
 
-<img width="376" height="201" alt="image" src="https://github.com/user-attachments/assets/4f1c67f6-09d6-4bac-b3b0-3443d956d64b" />
+
+<img width="365" height="162" alt="image" src="https://github.com/user-attachments/assets/cb6298c7-9197-476e-9aa7-88d95300470f" />
+
+<img width="378" height="101" alt="image" src="https://github.com/user-attachments/assets/b6313f4c-b5c7-4dd2-b8bd-efc1f984607f" />
+
 
 
 ### Token System
@@ -119,7 +125,7 @@ user → limited
 - Refresh token
 - Token expiration handling
 
-<img width="235" height="94" alt="image" src="https://github.com/user-attachments/assets/58988f25-63a6-40e4-a593-e23d5d45adec" />
+<img width="191" height="102" alt="image" src="https://github.com/user-attachments/assets/b78cb316-7022-4048-a445-074eba48624a" />
 
 
 ### Behavioral Authentication 
@@ -127,7 +133,10 @@ user → limited
 - Measures time between keystrokes
 - Verifies user behavior during login
 
-<img width="345" height="226" alt="image" src="https://github.com/user-attachments/assets/5729690e-8fbc-4fa4-94a0-f2479dc977d5" />
+<img width="212" height="439" alt="image" src="https://github.com/user-attachments/assets/cfbbb4b2-82f4-43af-9393-6f2f9a2fcede" />
+
+
+<img width="283" height="265" alt="image" src="https://github.com/user-attachments/assets/30d8ba25-6cfe-4a81-a3d2-e1480cb9fa69" />
 
 
 ### Session System
@@ -147,7 +156,7 @@ user → limited
 - Logout (JWT blacklist + session removal)
 - Test Scenarios
 
-<img width="415" height="74" alt="image" src="https://github.com/user-attachments/assets/04bd9ce8-c35e-47b3-8027-e8593bb6706f" />
+<img width="274" height="88" alt="image" src="https://github.com/user-attachments/assets/4d05249e-87f2-4203-990e-3c406731ce5c" />
 
 
 ---

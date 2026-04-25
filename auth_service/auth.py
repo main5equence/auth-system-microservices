@@ -53,8 +53,7 @@ class AuthService:
         password_hash = data["password_hash"].encode()
 
         if bcrypt.checkpw(password.encode(), password_hash):
-            user = User(username, password, data["role"])
-            user.totp_secret = data["totp_secret"]
+            user = User(username, password, data["role"], data["totp_secret"])
             return user
 
         return None
@@ -78,7 +77,7 @@ class AuthService:
         }
 
     # =========================
-    # LOGOUT (JWT blacklist)
+    # LOGOUT
     # =========================
     def logout(self, token):
         add_to_blacklist(token)
@@ -86,8 +85,22 @@ class AuthService:
     def logout_session(self, session_id):
         delete_session(session_id)
 
+    # =========================
+    # REFRESH TOKEN
+    # =========================
+    def refresh(self, refresh_token):
+        from auth_service.token_service import refresh_access
 
+        new_token = refresh_access(refresh_token)
 
+        if not new_token:
+            return None
 
+        return {
+            "jwt": new_token
+        }
+    
+    
+    
 
 

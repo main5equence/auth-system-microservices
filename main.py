@@ -13,11 +13,20 @@ auth = AuthService()
 res = ResourceService()
 
 # =========================
-# REGISTRATION
+# REGISTRATION (TYLKO RAZ!)
 # =========================
 print("\n=== REGISTRATION ===")
-auth.register("admin", "pass", "admin")
-auth.register("user", "pass", "user")
+print("If first run → register users")
+print("If already registered → skip (important for 2FA!)")
+
+choice = input("Register users? (y/n): ")
+
+if choice == "y":
+    auth.register("admin", "pass", "admin")
+    auth.register("user", "pass", "user")
+    print("Scan QR codes NOW in Google Authenticator!")
+    print("Then restart program and choose 'n'")
+    exit()
 
 # =========================
 # LOGIN
@@ -45,7 +54,11 @@ ks.train(username, "hello")
 # 2FA
 # =========================
 print("\n=== 2FA ===")
-print("DEBUG 2FA CODE:", pyotp.TOTP(user.totp_secret).now())
+print("Open Google Authenticator and enter current code")
+
+# DEBUG (możesz usunąć później)
+print("DEBUG (should match your phone):",
+      pyotp.TOTP(user.totp_secret).now())
 
 code = input("Enter 2FA code: ")
 
@@ -53,6 +66,7 @@ if auth.verify_2fa(user, code):
     print("2FA OK")
 else:
     print("2FA FAIL")
+    print("Try again quickly or rescan QR")
     exit()
 
 # =========================
@@ -87,13 +101,18 @@ print("\n=== MISSING TOKEN ===")
 print(res.access_admin(token=None, mode="jwt"))
 
 # =========================
-# WRONG ROLE (explicit)
+# WRONG ROLE
 # =========================
 print("\n=== WRONG ROLE ===")
 
 user2 = auth.login("user", "pass")
-code2 = pyotp.TOTP(user2.totp_secret).now()
-auth.verify_2fa(user2, code2)
+
+print("Enter code for USER account (Authenticator)")
+code2 = input("2FA code: ")
+
+if not auth.verify_2fa(user2, code2):
+    print("2FA FAIL for user")
+    exit()
 
 tokens2 = auth.issue_tokens(user2)
 
@@ -122,19 +141,24 @@ print(res.access_admin(session=session_id, mode="session"))
 print("\n=== JWT vs SESSION ===")
 reset_replay()
 
-print("JWT expired, but session still works:")
 print("JWT:", res.access_admin(token=jwt_token, mode="jwt"))
 print("SESSION:", res.access_admin(session=session_id, mode="session"))
 
 # =========================
-# ROLE DEMO 
+# ROLE DEMO
 # =========================
 print("\n=== ROLE DEMO ===")
 
 admin_user = auth.login("admin", "pass")
-admin_tokens = auth.issue_tokens(admin_user)
 
-user_tokens = auth.issue_tokens(user)
+print("Enter code for ADMIN:")
+admin_code = input("2FA code: ")
+
+if not auth.verify_2fa(admin_user, admin_code):
+    print("2FA FAIL")
+    exit()
+
+admin_tokens = auth.issue_tokens(admin_user)
 
 print("Admin access:",
       res.access_admin(token=admin_tokens["jwt"], mode="jwt"))
@@ -168,13 +192,21 @@ new_token = refresh_access(refresh_token)
 print(res.access_admin(token=new_token, mode="jwt"))
 
 # =========================
-# REPLAY ATTACK TEST 
+# REPLAY ATTACK TEST
 # =========================
 print("\n=== REPLAY ATTACK TEST ===")
 
 reset_replay()
 
 admin_user = auth.login("admin", "pass")
+
+print("Enter code for ADMIN:")
+admin_code = input("2FA code: ")
+
+if not auth.verify_2fa(admin_user, admin_code):
+    print("2FA FAIL")
+    exit()
+
 tokens_new = auth.issue_tokens(admin_user)
 jwt_new = tokens_new["jwt"]
 

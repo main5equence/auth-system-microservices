@@ -56,7 +56,7 @@ ks.train(username, "hello")
 print("\n=== 2FA ===")
 print("Open Google Authenticator and enter current code")
 
-# DEBUG (możesz usunąć później)
+# DEBUG 
 print("DEBUG (should match your phone):",
       pyotp.TOTP(user.totp_secret).now())
 

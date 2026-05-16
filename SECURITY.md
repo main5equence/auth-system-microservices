@@ -96,7 +96,7 @@ Please include:
 
 ---
 
-##Limitations
+## Limitations
 
 This project is a simplified simulation:
 
